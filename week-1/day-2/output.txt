@@ -1,0 +1,250 @@
+--Group By Quries
+--Q21 output
+| department_id | SUM(salary) |
+| ------------- | ----------- |
+| 1             | 195000.00   |
+| 2             | 110000.00   |
+| 3             | 100000.00   |
+| 4             | 123000.00   |
+| NULL          | 48000.00    |
+
+--Q22 output
+| department_id | AVG(age) |
+| ------------- | -------- |
+| 1             | 33.33    |
+| 2             | 31.50    |
+| 3             | 32.50    |
+| 4             | 34.00    |
+| NULL          | 32.00    |
+
+--Q23 output
+| YEAR(hire_date) | COUNT(*) |
+| --------------- | -------- |
+| 2018            | 2        |
+| 2019            | 2        |
+| 2020            | 2        |
+| 2021            | 3        |
+| 2022            | 1        |
+
+--Q24 output
+| department_id | highest_salary |
+| ------------- | -------------- |
+| 1             | 80000.00       |
+| 2             | 60000.00       |
+| 3             | 55000.00       |
+| 4             | 70000.00       |
+| NULL          | 48000.00       |
+
+--Q25 output
+| department_id | average_salary |
+| ------------- | -------------- |
+| 1             | 65000.00       |
+
+
+---Having Queries
+--Q26 output
+| department_id | count_employee |
+| ------------- | -------------- |
+| 1             | 3              |
+
+--Q27 output
+| department_id | average_salary |
+| ------------- | -------------- |
+| 1             | 65000.00       |
+| 4             | 61500.00       |
+
+--Q28 output
+| hire_year | employee_count |
+| --------- | -------------- |
+| 2018      | 2              |
+| 2019      | 2              |
+| 2020      | 2              |
+| 2021      | 3              |
+
+--Q29 output
+| department_id | total_salary |
+| ------------- | ------------ |
+| NULL          | 48000        |
+
+--Q30 output
+| department_id | maximum_salary |
+| ------------- | -------------- |
+| 1             | 80000          |
+
+
+---Order By Queries
+--Q31 output
+| emp_id | name        | age | salary | department_id | hire_date  |
+| ------ | ----------- | --- | ------ | ------------- | ---------- |
+| 4      | Alice Blue  | 25  | 45000  | 3             | 2021-03-22 |
+| 8      | Frank White | 32  | 48000  | NULL          | 2021-07-10 |
+| 1      | John Doe    | 28  | 50000  | 1             | 2020-01-15 |
+| 5      | Charlie P.  | 29  | 50000  | 2             | 2019-12-01 |
+| 10     | Hannah Lee  | 30  | 53000  | 4             | 2020-02-25 |
+| 7      | Eve Black   | 40  | 55000  | 3             | 2021-08-30 |
+| 2      | Jane Smith  | 34  | 60000  | 2             | 2019-07-23 |
+| 9      | Grace Kelly | 27  | 65000  | 1             | 2018-11-13 |
+| 6      | David Green | 38  | 70000  | 4             | 2022-05-18 |
+| 3      | Bob Brown   | 45  | 80000  | 1             | 2018-02-12 |
+
+--Q32 output
+| emp_id | name        | age | salary | department_id | hire_date  |
+| ------ | ----------- | --- | ------ | ------------- | ---------- |
+| 3      | Bob Brown   | 45  | 80000  | 1             | 2018-02-12 |
+| 7      | Eve Black   | 40  | 55000  | 3             | 2021-08-30 |
+| 6      | David Green | 38  | 70000  | 4             | 2022-05-18 |
+| 2      | Jane Smith  | 34  | 60000  | 2             | 2019-07-23 |
+| 8      | Frank White | 32  | 48000  | NULL          | 2021-07-10 |
+| 10     | Hannah Lee  | 30  | 53000  | 4             | 2020-02-25 |
+| 5      | Charlie P.  | 29  | 50000  | 2             | 2019-12-01 |
+| 1      | John Doe    | 28  | 50000  | 1             | 2020-01-15 |
+| 9      | Grace Kelly | 27  | 65000  | 1             | 2018-11-13 |
+| 4      | Alice Blue  | 25  | 45000  | 3             | 2021-03-22 |
+
+--Q33 output
+| emp_id | name        | age | salary | department_id | hire_date  |
+| ------ | ----------- | --- | ------ | ------------- | ---------- |
+| 3      | Bob Brown   | 45  | 80000  | 1             | 2018-02-12 |
+| 9      | Grace Kelly | 27  | 65000  | 1             | 2018-11-13 |
+| 2      | Jane Smith  | 34  | 60000  | 2             | 2019-07-23 |
+| 5      | Charlie P.  | 29  | 50000  | 2             | 2019-12-01 |
+| 1      | John Doe    | 28  | 50000  | 1             | 2020-01-15 |
+| 10     | Hannah Lee  | 30  | 53000  | 4             | 2020-02-25 |
+| 4      | Alice Blue  | 25  | 45000  | 3             | 2021-03-22 |
+| 8      | Frank White | 32  | 48000  | NULL          | 2021-07-10 |
+| 7      | Eve Black   | 40  | 55000  | 3             | 2021-08-30 |
+| 6      | David Green | 38  | 70000  | 4             | 2022-05-18 |
+
+--Q34 output
+| emp_id | name        | age | salary | department_id | hire_date  |
+| ------ | ----------- | --- | ------ | ------------- | ---------- |
+| 8      | Frank White | 32  | 48000  | NULL          | 2021-07-10 |
+| 1      | John Doe    | 28  | 50000  | 1             | 2020-01-15 |
+| 9      | Grace Kelly | 27  | 65000  | 1             | 2018-11-13 |
+| 3      | Bob Brown   | 45  | 80000  | 1             | 2018-02-12 |
+| 5      | Charlie P.  | 29  | 50000  | 2             | 2019-12-01 |
+| 2      | Jane Smith  | 34  | 60000  | 2             | 2019-07-23 |
+| 4      | Alice Blue  | 25  | 45000  | 3             | 2021-03-22 |
+| 7      | Eve Black   | 40  | 55000  | 3             | 2021-08-30 |
+| 10     | Hannah Lee  | 30  | 53000  | 4             | 2020-02-25 |
+| 6      | David Green | 38  | 70000  | 4             | 2022-05-18 |
+
+--Q35 output
+| department_id | total_salary |
+| ------------- | ------------ |
+| NULL          | 48000        |
+| 3             | 100000       |
+| 2             | 110000       |
+| 4             | 123000       |
+| 1             | 195000       |
+
+
+---Join Queries
+--Q36 output
+| Employee Name | Department Name |
+| ------------- | --------------- |
+| John Doe      | IT              |
+| Bob Brown     | IT              |
+| Grace Kelly   | IT              |
+| Jane Smith    | HR              |
+| Charlie P.    | HR              |
+| Alice Blue    | Finance         |
+| Eve Black     | Finance         |
+| David Green   | Marketing       |
+| Hannah Lee    | Marketing       |
+
+--Q37 output
+| Project Name    | Department Name |
+| --------------- | --------------- |
+| Project Alpha   | IT              |
+| Project Gamma   | IT              |
+| Project Theta   | IT              |
+| Project Beta    | HR              |
+| Project Delta   | Finance         |
+| Project Eta     | Finance         |
+| Project Epsilon | Marketing       |
+| Project Zeta    | Marketing       |
+
+--Q38 output
+| Employee Name | Project Name    |
+| ------------- | --------------- |
+| John Doe      | Project Alpha   |
+| Bob Brown     | Project Alpha   |
+| Grace Kelly   | Project Alpha   |
+| Jane Smith    | Project Beta    |
+| Charlie P.    | Project Beta    |
+| John Doe      | Project Gamma   |
+| Bob Brown     | Project Gamma   |
+| Grace Kelly   | Project Gamma   |
+| Alice Blue    | Project Delta   |
+| Eve Black     | Project Delta   |
+| David Green   | Project Epsilon |
+| Hannah Lee    | Project Epsilon |
+| David Green   | Project Zeta    |
+| Hannah Lee    | Project Zeta    |
+| Alice Blue    | Project Eta     |
+| Eve Black     | Project Eta     |
+| John Doe      | Project Theta   |
+| Bob Brown     | Project Theta   |
+| Grace Kelly   | Project Theta   |
+
+--Q39 output
+| Employee Name | Department Name |
+| ------------- | --------------- |
+| John Doe      | IT              |
+| Bob Brown     | IT              |
+| Grace Kelly   | IT              |
+| Jane Smith    | HR              |
+| Charlie P.    | HR              |
+| Alice Blue    | Finance         |
+| Eve Black     | Finance         |
+| David Green   | Marketing       |
+| Hannah Lee    | Marketing       |
+| Frank White   | NULL            |
+
+--Q40 output
+| Department Name | Employee Name |
+| --------------- | ------------- |
+| IT              | John Doe      |
+| IT              | Bob Brown     |
+| IT              | Grace Kelly   |
+| HR              | Jane Smith    |
+| HR              | Charlie P.    |
+| Finance         | Alice Blue    |
+| Finance         | Eve Black     |
+| Marketing       | David Green   |
+| Marketing       | Hannah Lee    |
+
+--Q41 output
+| name        |
+| ----------- |
+| Frank White |
+
+--Q42 output
+| name        | project_count |
+| ----------- | ------------- |
+| Alice Blue  | 2             |
+| Bob Brown   | 3             |
+| Charlie P.  | 1             |
+| David Green | 2             |
+| Eve Black   | 2             |
+| Frank White | 0             |
+| Grace Kelly | 3             |
+| Hannah Lee  | 2             |
+| Jane Smith  | 1             |
+| John Doe    | 3             |
+
+--Q43 output
+Departments that have NO employees.
+
+--Q44 output
+| name        |
+| ----------- |
+| John Doe    |
+| Bob Brown   |
+| Grace Kelly |
+
+--Q45 output
+| name | average_salary |
+| ---- | -------------- |
+| IT   | 65000.0        |
