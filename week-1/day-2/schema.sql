@@ -1,66 +1,75 @@
--- Create Department table
-CREATE TABLE Department (
-    department_id INT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL
+
+-- SQL Joins Assignment Starter File
+-- Compatible with PostgreSQL
+
+DROP TABLE IF EXISTS enrollments;
+DROP TABLE IF EXISTS courses;
+DROP TABLE IF EXISTS students;
+DROP TABLE IF EXISTS instructors;
+
+CREATE TABLE instructors (
+    instructor_id INT PRIMARY KEY,
+    instructor_name VARCHAR(100),
+    department VARCHAR(100)
 );
 
--- Create Employee table
-CREATE TABLE Employee (
-    emp_id INT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    age INT,
-    salary DECIMAL(10, 2),
-    department_id INT,
-    hire_date DATE,
-    FOREIGN KEY (department_id) REFERENCES Department(department_id)
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(100),
+    email VARCHAR(100)
 );
 
--- Create Project table
-CREATE TABLE Project (
-    project_id INT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    department_id INT,
-    FOREIGN KEY (department_id) REFERENCES Department(department_id)
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100),
+    instructor_id INT NULL,
+    FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id)
 );
 
--- Insert data into Department table
-INSERT INTO Department (department_id, name) VALUES
-(1, 'IT'),
-(2, 'HR'),
-(3, 'Finance'),
-(4, 'Marketing');
+CREATE TABLE enrollments (
+    enrollment_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE,
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    FOREIGN KEY (course_id) REFERENCES courses(course_id)
+);
 
--- Insert data into Employee table
-INSERT INTO Employee (emp_id, name, age, salary, department_id, hire_date) VALUES
-(1, 'John Doe', 28, 50000.00, 1, '2020-01-15'),
-(2, 'Jane Smith', 34, 60000.00, 2, '2019-07-23'),
-(3, 'Bob Brown', 45, 80000.00, 1, '2018-02-12'),
-(4, 'Alice Blue', 25, 45000.00, 3, '2021-03-22'),
-(5, 'Charlie P.', 29, 50000.00, 2, '2019-12-01'),
-(6, 'David Green', 38, 70000.00, 4, '2022-05-18'),
-(7, 'Eve Black', 40, 55000.00, 3, '2021-08-30');
+-- Insert instructors
+INSERT INTO instructors VALUES
+(1, 'Sarah Connor', 'Databases'),
+(2, 'Michael Scott', 'Programming'),
+(3, 'Tony Stark', 'Cloud Computing'),
+(4, 'Bruce Wayne', 'Cyber Security');
 
--- Insert data into Project table
-INSERT INTO Project (project_id, name, department_id) VALUES
-(1, 'Project Alpha', 1),
-(2, 'Project Beta', 2),
-(3, 'Project Gamma', 1),
-(4, 'Project Delta', 3),
-(5, 'Project Epsilon', 4),
-(6, 'Project Zeta', 4),
-(7, 'Project Eta', 3);
+-- Insert students
+INSERT INTO students VALUES
+(1, 'Alice Johnson', 'alice@email.com'),
+(2, 'Bob Smith', 'bob@email.com'),
+(3, 'Charlie Brown', 'charlie@email.com'),
+(4, 'Diana Prince', 'diana@email.com'),
+(5, 'Ethan Hunt', 'ethan@email.com'),
+(6, 'Fiona Green', 'fiona@email.com');
 
+-- Insert courses
+INSERT INTO courses VALUES
+(101, 'SQL Basics', 1),
+(102, 'Python Fundamentals', 2),
+(103, 'Data Analytics', NULL),
+(104, 'Cloud Computing', 3),
+(105, 'Machine Learning', NULL),
+(106, 'Cyber Security', 4);
 
--- Insert additional data into Department table (if needed)
--- No additional departments needed for this data set
+-- Insert enrollments
+INSERT INTO enrollments VALUES
+(1, 1, 101, '2024-01-10'),
+(2, 1, 102, '2024-01-12'),
+(3, 2, 101, '2024-01-15'),
+(4, 3, 104, '2024-01-20'),
+(5, 4, 106, '2024-01-25');
 
--- Insert additional data into Employee table to test edge cases for joins and nested queries
-INSERT INTO Employee (emp_id, name, age, salary, department_id, hire_date) VALUES
-(8, 'Frank White', 32, 48000.00, NULL, '2021-07-10'),  -- Employee without a department
-(9, 'Grace Kelly', 27, 65000.00, 1, '2018-11-13'),
-(10, 'Hannah Lee', 30, 53000.00, 4, '2020-02-25');
-
--- Insert additional data into Project table to test edge cases for joins
-INSERT INTO Project (project_id, name, department_id) VALUES
-(8, 'Project Theta', 1),
-(9, 'Project Iota', NULL);  -- Project without a department
+-- Notes:
+-- Student 5 and 6 are not enrolled in any course.
+-- Courses 103 and 105 have no instructor assigned.
+-- Courses 103 and 105 also have no enrollments.
+-- Instructor 4 teaches one course.
